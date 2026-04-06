@@ -375,17 +375,17 @@ svg { display: block; }
 .cat--feat { padding: 28px 0; }
 
 .cat__thumb {
-  width: 100px;
-  height: 80px;
+  width: 200px;
+  height: 140px;
   object-fit: cover;
   border-radius: 10px;
   flex-shrink: 0;
 }
 .cat__body { flex: 1; }
 .cat__body h3 {
-  font-size: 1.15rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 .cat__body p {
   font-size: 0.84rem;
@@ -393,18 +393,33 @@ svg { display: block; }
   line-height: 1.55;
   max-width: 440px;
 }
+
+/* Non-featured rows: name | description | arrow */
+.cat__name {
+  font-size: 2.2rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  min-width: 200px;
+}
+.cat__desc {
+  flex: 1;
+  font-size: 0.84rem;
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 480px;
+}
 .cat__arrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   border: 1px solid var(--border);
   flex-shrink: 0;
   transition: all var(--ease);
 }
-.cat__arrow svg { width: 18px; height: 18px; }
+.cat__arrow svg { width: 20px; height: 20px; }
 .cat__arrow:hover,
 .cat__arrow--accent {
   background: var(--accent);
