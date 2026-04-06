@@ -1,0 +1,15 @@
+{
+  "name": "peplogix_site",
+  "version": "1.0.0",
+  "description": "Peplogix website",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@playwright/cli": "^0.1.5"
+  }
+}
