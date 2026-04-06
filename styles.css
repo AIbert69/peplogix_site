@@ -441,13 +441,15 @@ svg { display: block; }
   margin-bottom: 28px;
 }
 .capsule__img {
-  flex: 1;
+  flex: 1.2;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: center;
 }
 .capsule__img img {
-  max-width: 480px;
   width: 100%;
+  max-width: 580px;
+  height: 340px;
   border-radius: 14px;
   object-fit: cover;
 }
@@ -466,8 +468,10 @@ svg { display: block; }
 }
 .subscribe__vial { flex-shrink: 0; }
 .subscribe__vial img {
-  width: 120px;
-  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.1));
+  width: 240px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 .subscribe__copy { flex-shrink: 0; }
 .subscribe__copy h2 {
