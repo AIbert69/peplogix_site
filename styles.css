@@ -201,32 +201,32 @@ svg { display: block; }
 .about {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 80px 48px;
+  padding: 80px 48px 96px;
   background: var(--bg);
 }
 .about__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 48px;
-  margin-top: 40px;
+  margin-top: 52px;
 }
 .about__card { text-align: center; }
 .about__icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
-.about__icon svg { width: 22px; height: 22px; }
-.about__icon--blue  { background: rgba(59,130,246,0.1); color: #3b82f6; }
-.about__icon--teal  { background: rgba(0,201,167,0.1); color: var(--accent); }
-.about__icon--green { background: rgba(34,197,94,0.1); color: #22c55e; }
+.about__icon svg { width: 24px; height: 24px; }
+.about__icon--blue  { background: rgba(59,130,246,0.12); color: #3b82f6; }
+.about__icon--teal  { background: rgba(0,201,167,0.12); color: var(--accent); }
+.about__icon--green { background: rgba(34,197,94,0.12); color: #22c55e; }
 .about__card h3 {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.02rem;
+  font-weight: 700;
   margin-bottom: 8px;
   letter-spacing: -0.01em;
 }
