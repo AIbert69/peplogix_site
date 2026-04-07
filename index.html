@@ -1,222 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>peplogix — Precision Peptides</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>peplogix — Precision Peptides</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F6F7F9;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #111827;
+        }
+
+        .capsule-bg {
+            background-image: linear-gradient(to right, rgba(23, 37, 54, 0.95) 0%, rgba(23, 37, 54, 0.7) 40%, rgba(23, 37, 54, 0.2) 100%), url('pills.jpg');
+            background-size: cover;
+            background-position: right center;
+        }
+
+        .btn-teal {
+            background-color: #00E5C0;
+            color: #000;
+            transition: all 0.2s;
+        }
+        .btn-teal:hover {
+            background-color: #00cfae;
+        }
+        .text-teal {
+            color: #00E5C0;
+        }
+
+        .glass-badge {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #999; }
+    </style>
 </head>
-<body>
+<body class="antialiased">
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar">
-    <a href="#" class="navbar__logo">
-      <img src="peplogix_logo2.png" alt="peplogix" class="navbar__logo-img" />
-    </a>
-    <ul class="navbar__links">
-      <li><a href="#" class="navbar__link navbar__link--active">Home</a></li>
-      <li><a href="#" class="navbar__link">Shop <span class="navbar__caret">&#9662;</span></a></li>
-      <li><a href="#" class="navbar__link">Testing</a></li>
-      <li><a href="#" class="navbar__link">FAQ</a></li>
-      <li><a href="#" class="navbar__link">Contact</a></li>
-    </ul>
-    <div class="navbar__actions">
-      <button class="navbar__icon-btn" aria-label="Account">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      </button>
-      <button class="navbar__icon-btn" aria-label="Cart">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-      </button>
-    </div>
-  </nav>
+    <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-24">
 
-  <!-- ===== HERO ===== -->
-  <section class="hero">
-    <video class="hero__video" autoplay muted loop playsinline>
-      <source src="hero_video.mp4" type="video/mp4" />
-    </video>
-    <div class="hero__content">
-      <h1 class="hero__heading">PRECISION PEPTIDES.<br>POWERFUL RESULTS.</h1>
-      <a href="#" class="btn btn--primary hero__cta">Explore more <span class="btn__arrow">&rarr;</span></a>
-      <p class="hero__sub">Discover clinically designed formulations engineered to enhance recovery, optimize performance, and unlock your full potential.</p>
-      <div class="hero__dots">
-        <span class="dot dot--active"></span>
-        <span class="dot dot--dim"></span>
-      </div>
-    </div>
-    <div class="hero__right">
-      <div class="hero__badge">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#00c9a7" stroke-width="1.5"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>
-        <div><strong>Tested in ISO</strong><span>certified labs</span></div>
-      </div>
-    </div>
-  </section>
+        <!-- Hero Section -->
+        <section class="rounded-[2rem] relative overflow-hidden min-h-[700px] flex flex-col bg-[#0e151e]">
+            <!-- Video Background -->
+            <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+                <source src="hero_video.mp4" type="video/mp4" />
+            </video>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0e151e]/90 via-[#0e151e]/40 to-transparent"></div>
 
-  <!-- ===== ABOUT PEPTIDES ===== -->
-  <section class="about">
-    <p class="label"><span class="label__star">&#10022;</span> ABOUT PEPTIDES</p>
-    <div class="about__grid">
-      <div class="about__card">
-        <span class="about__icon about__icon--blue">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6v5l4 8H5l4-8V3z"/><line x1="9" y1="3" x2="15" y2="3"/></svg>
-        </span>
-        <h3>Cellular Activation</h3>
-        <p>Peptides trigger biological processes at a molecular level.</p>
-      </div>
-      <div class="about__card">
-        <span class="about__icon about__icon--teal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        </span>
-        <h3>Targeted Delivery</h3>
-        <p>Each compound interacts with specific receptors for precision results.</p>
-      </div>
-      <div class="about__card">
-        <span class="about__icon about__icon--green">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 8c-4 0-8 3-9 8"/><path d="M6 16c0-7 5-13 14-13 0 5-2 10-8 13-2 1-4 1-6 0z"/></svg>
-        </span>
-        <h3>Natural Response</h3>
-        <p>Supports your body's innate ability to regenerate and balance.</p>
-      </div>
-    </div>
-  </section>
+            <!-- Navigation -->
+            <nav class="flex items-center justify-between px-8 py-6 relative z-10 text-white">
+                <div class="flex items-center space-x-2">
+                    <img src="peplogix_logo2.png" alt="peplogix" class="h-8" />
+                </div>
+                <div class="hidden md:flex items-center space-x-8 text-sm text-gray-300">
+                    <a href="#" class="bg-white text-black px-4 py-1.5 rounded-full font-medium">Home</a>
+                    <a href="#" class="hover:text-white flex items-center space-x-1">
+                        <span>Shop</span>
+                        <i class="fas fa-chevron-down text-[10px]"></i>
+                    </a>
+                    <a href="#" class="hover:text-white">Testing</a>
+                    <a href="#" class="hover:text-white">FAQ</a>
+                    <a href="#" class="hover:text-white">Contact</a>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button class="w-10 h-10 rounded-lg glass-badge flex items-center justify-center hover:bg-white/20 transition text-white">
+                        <i class="far fa-user"></i>
+                    </button>
+                    <button class="w-10 h-10 rounded-lg glass-badge flex items-center justify-center hover:bg-white/20 transition text-white">
+                        <i class="fas fa-shopping-cart"></i>
+                    </button>
+                </div>
+            </nav>
 
-  <!-- ===== TRUST ===== -->
-  <section class="trust">
-    <div class="trust__text">
-      <p>Every batch undergoes triple-stage verification &mdash; purity, potency, and sterility. We publish our certificates transparently, because trust should be measurable.</p>
-    </div>
-    <div class="trust__img">
-      <img src="peptide_assemble.jpg" alt="Peptide assembly line" />
-    </div>
-  </section>
+            <!-- Hero Content -->
+            <div class="flex-grow flex flex-col justify-center px-8 md:px-16 lg:px-24 w-full md:w-1/2 z-10 mt-16 text-white">
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6 tracking-tight">
+                    PRECISION PEPTIDES.<br>
+                    POWERFUL RESULTS.
+                </h1>
+                <p class="text-gray-300 text-lg mb-10 max-w-md font-light">
+                    Discover clinically designed formulations engineered to enhance recovery, optimize performance, and unlock your full potential.
+                </p>
+                <div>
+                    <button class="btn-teal px-6 py-3 rounded-full font-medium flex items-center space-x-2">
+                        <span>Explore more</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+            </div>
 
-  <!-- ===== BEST SELLERS ===== -->
-  <section class="sellers">
-    <div class="sellers__head">
-      <p class="label"><span class="label__star">&#10022;</span> BEST SELLERS</p>
-      <h2><em>Precision formulas in high demand</em></h2>
-    </div>
-    <div class="sellers__grid">
-      <div class="card">
-        <div class="card__img">
-          <span class="card__badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-          </span>
-          <img src="Peptide_1.png" alt="GLP-3" />
-        </div>
-        <div class="card__info"><h4>GLP-3</h4><span>$64.00</span></div>
-      </div>
-      <div class="card">
-        <div class="card__img"><img src="Peptide_2.png" alt="MOTS-C" /></div>
-        <div class="card__info"><h4>MOTS-C</h4><span>$74.00</span></div>
-      </div>
-      <div class="card">
-        <div class="card__img"><img src="Peptide_3.png" alt="BPC-157" /></div>
-        <div class="card__info"><h4>BPC-157</h4><span>$88.00</span></div>
-      </div>
-      <div class="card">
-        <div class="card__img"><img src="Peptide_4.png" alt="GHK-Cu" /></div>
-        <div class="card__info"><h4>GHK-Cu</h4><span>$93.00</span></div>
-      </div>
-    </div>
-    <div class="sellers__foot">
-      <div class="sellers__dots"><span class="dot dot--active"></span><span class="dot dot--dim"></span></div>
-      <a href="#" class="btn btn--primary">See all <span class="btn__arrow">&rarr;</span></a>
-    </div>
-  </section>
+            <!-- Floating Badges -->
+            <div class="absolute bottom-10 left-10 glass-badge rounded-2xl p-4 flex items-center space-x-4 text-white max-w-[200px] z-10">
+                <div class="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center relative">
+                    <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <p class="text-sm font-medium">Purity &gt; 99.5%</p>
+            </div>
 
-  <!-- ===== CATEGORIES ===== -->
-  <section class="cats">
-    <div class="cat cat--feat">
-      <img src="rawmaterial.jpg" alt="Peptides" class="cat__thumb" />
-      <div class="cat__body"><h3>Peptides</h3><p>Clinically formulated compounds that boost repair, recovery, and performance at the cellular level.</p></div>
-      <a href="#" class="cat__arrow cat__arrow--accent" aria-label="Shop Peptides"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-    </div>
-    <div class="cat">
-      <h3 class="cat__name">Blends</h3>
-      <p class="cat__desc">Multi-peptide formulas designed for synergy — maximising regeneration, strength, and vitality.</p>
-      <a href="#" class="cat__arrow" aria-label="Shop Blends"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-    </div>
-    <div class="cat">
-      <h3 class="cat__name">L-Carnitine</h3>
-      <p class="cat__desc">Supports fat metabolism, endurance, and energy production for a lean, efficient body.</p>
-      <a href="#" class="cat__arrow" aria-label="Shop L-Carnitine"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-    </div>
-    <div class="cat">
-      <h3 class="cat__name">Capsules</h3>
-      <p class="cat__desc">Clean, precisely dosed formulas for daily support and consistent performance.</p>
-      <a href="#" class="cat__arrow" aria-label="Shop Capsules"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-    </div>
-    <div class="cat">
-      <h3 class="cat__name">Bulk</h3>
-      <p class="cat__desc">Large-format research-grade peptides with verified purity and uncompromising quality.</p>
-      <a href="#" class="cat__arrow" aria-label="Shop Bulk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></a>
-    </div>
-  </section>
+            <div class="absolute bottom-10 right-10 glass-badge rounded-2xl p-4 flex items-center space-x-4 text-white z-10">
+                <div class="bg-white text-black p-2 rounded-lg">
+                    <i class="fas fa-clipboard-check text-xl"></i>
+                </div>
+                <p class="text-sm font-medium leading-tight">Tested in ISO<br>certified labs</p>
+            </div>
+        </section>
 
-  <!-- ===== CAPSULE HERO ===== -->
-  <section class="capsule">
-    <div class="capsule__text">
-      <h2>THE FUTURE OF PEPTIDES<br>IN CAPSULE FORM</h2>
-      <p>The same verified purity — redefined for daily precision. Your favourite peptides, now in a seamless capsule format.</p>
-      <a href="#" class="btn btn--primary">Find more <span class="btn__arrow">&rarr;</span></a>
-    </div>
-    <div class="capsule__img">
-      <img src="pills.jpg" alt="Peplogix capsule bottles" />
-    </div>
-  </section>
+        <!-- About Peptides -->
+        <section class="px-4 md:px-8">
+            <div class="flex items-center space-x-2 text-sm font-semibold tracking-wider uppercase mb-12">
+                <span class="text-teal">&#10022;</span>
+                <span class="text-gray-900">ABOUT PEPTIDES</span>
+            </div>
 
-  <!-- ===== SUBSCRIBE ===== -->
-  <section class="subscribe">
-    <div class="subscribe__vial">
-      <img src="Generated Image April 06, 2026 - 1_35PM.jpg" alt="Peptide vials in laboratory" />
-    </div>
-    <div class="subscribe__copy">
-      <h2>Subscribe for 10% discount</h2>
-    </div>
-    <div class="subscribe__form">
-      <p>Get weekly updates about our products on your email, no spam guaranteed our promise.</p>
-      <div class="subscribe__row">
-        <input type="email" placeholder="Your email" />
-        <button aria-label="Subscribe">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-      </div>
-    </div>
-  </section>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <div class="w-12 h-12 rounded-full border border-[#00E5C0]/50 flex items-center justify-center text-teal mb-6">
+                        <i class="fas fa-dna text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cellular Activation</h3>
+                    <p class="text-gray-600 leading-relaxed">Peptides trigger repair processes at a molecular level.</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 rounded-full border border-[#00E5C0]/50 flex items-center justify-center text-teal mb-6">
+                        <i class="fas fa-crosshairs text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Targeted Delivery</h3>
+                    <p class="text-gray-600 leading-relaxed">Each compound interacts with specific receptors for precision results.</p>
+                </div>
+                <div>
+                    <div class="w-12 h-12 rounded-full border border-[#00E5C0]/50 flex items-center justify-center text-teal mb-6">
+                        <i class="fas fa-leaf text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Natural Response</h3>
+                    <p class="text-gray-600 leading-relaxed">Supports your body's innate ability to regenerate and balance.</p>
+                </div>
+            </div>
+        </section>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="footer__grid">
-      <div class="footer__brand">
-        <a href="#"><img src="peplogix_logo2.png" alt="peplogix" class="footer__logo" /></a>
-        <p>Unlock your body's potential with science-backed peptides — precision, performance, and vitality in every dose.</p>
-      </div>
-      <div class="footer__col">
-        <h5>Menu</h5>
-        <ul><li><a href="#">Home</a></li><li><a href="#">Shop</a></li><li><a href="#">Testing</a></li><li><a href="#">FAQ</a></li><li><a href="#">Contact</a></li></ul>
-      </div>
-      <div class="footer__col">
-        <h5>Quick Links</h5>
-        <ul><li><a href="#">Legal</a></li><li><a href="#">Register</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms and Conditions</a></li><li><a href="#">Legal &amp; Compliance</a></li></ul>
-      </div>
-      <div class="footer__col">
-        <h5>Operational</h5>
-        <p>Every day 9:00 – 22:00<br>Sat – Sun 9:00 – 19:00</p>
-        <a href="#" class="footer__consult">You need a consult?</a>
-      </div>
+        <!-- Verification -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center px-4 md:px-8">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-medium leading-tight tracking-tight text-gray-900">
+                    Every batch undergoes triple-stage verification — purity, potency, and sterility. We publish our certificates transparently, because trust should be measurable.
+                </h2>
+            </div>
+            <div>
+                <img src="peptide_assemble.jpg" alt="Manufacturing" class="rounded-2xl w-full h-auto object-cover shadow-lg">
+            </div>
+        </section>
+
+        <!-- Best Sellers -->
+        <section class="px-4 md:px-8 space-y-10">
+            <div class="flex items-center space-x-2 text-sm font-semibold tracking-wider uppercase">
+                <span class="text-teal">&#10022;</span>
+                <span class="text-gray-900">BEST SELLERS</span>
+            </div>
+
+            <h2 class="text-4xl font-bold tracking-tight text-center md:text-left">Precision formulas in high demand</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-2xl p-6 relative group shadow-sm hover:shadow-md transition">
+                    <div class="absolute top-4 right-4 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <button class="w-8 h-8 rounded-full bg-[#00E5C0] text-white flex items-center justify-center"><i class="fas fa-shopping-cart text-sm"></i></button>
+                        <button class="w-8 h-8 rounded-full border border-gray-200 bg-white text-gray-500 flex items-center justify-center"><i class="fas fa-link text-sm"></i></button>
+                    </div>
+                    <div class="h-64 flex items-center justify-center mb-6">
+                        <img src="Peptide_1.png" alt="GLP-3" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">GLP-3</h3>
+                    <p class="text-gray-500 text-sm">$64.00</p>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-2xl p-6 relative group shadow-sm hover:shadow-md transition">
+                    <div class="h-64 flex items-center justify-center mb-6">
+                        <img src="Peptide_2.png" alt="MOTS-C" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">MOTS-C</h3>
+                    <p class="text-gray-500 text-sm">$74.00</p>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-2xl p-6 relative group shadow-sm hover:shadow-md transition">
+                    <div class="h-64 flex items-center justify-center mb-6">
+                        <img src="Peptide_3.png" alt="BPC-157" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">BPC-157</h3>
+                    <p class="text-gray-500 text-sm">$88.00</p>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="bg-white rounded-2xl p-6 relative group shadow-sm hover:shadow-md transition">
+                    <div class="h-64 flex items-center justify-center mb-6">
+                        <img src="Peptide_4.png" alt="GHK-Cu" class="h-full object-contain">
+                    </div>
+                    <h3 class="text-xl font-bold mb-1">GHK-Cu</h3>
+                    <p class="text-gray-500 text-sm">$93.00</p>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-4">
+                <div class="w-64 h-1 bg-gray-200 rounded-full overflow-hidden">
+                    <div class="w-1/4 h-full bg-black rounded-full"></div>
+                </div>
+                <button class="btn-teal px-6 py-2.5 rounded-full font-medium flex items-center space-x-2 text-sm">
+                    <span>Open store</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="px-4 md:px-8">
+            <div class="flex flex-col">
+                <!-- Peptides (with image) -->
+                <div class="flex flex-col md:flex-row items-center justify-between py-8 border-b border-gray-200 gap-8">
+                    <div class="w-full md:w-1/3 h-48 md:h-32 rounded-2xl overflow-hidden flex-shrink-0">
+                        <img src="rawmaterial.jpg" alt="Peptides" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-grow flex flex-col md:flex-row justify-between items-start md:items-center w-full gap-4 md:gap-12 pl-0 md:pl-8">
+                        <h3 class="text-4xl font-medium tracking-tight">Peptides</h3>
+                        <p class="text-gray-600 text-sm max-w-sm">Clinically formulated compounds that boost repair, recovery, and performance at the cellular level.</p>
+                        <button class="w-12 h-12 rounded-xl bg-[#1e2329] text-white flex items-center justify-center hover:bg-black transition flex-shrink-0">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Blends -->
+                <div class="flex flex-col md:flex-row items-center justify-between py-8 border-b border-gray-200 gap-4 md:gap-12">
+                    <h3 class="text-4xl font-medium tracking-tight w-full md:w-1/3">Blends</h3>
+                    <div class="flex-grow flex justify-between items-center w-full">
+                        <p class="text-gray-600 text-sm max-w-sm">Multi-peptide formulas designed for synergy — maximising regeneration, strength, and vitality.</p>
+                        <button class="w-12 h-12 rounded-xl border border-gray-300 bg-transparent text-gray-800 flex items-center justify-center hover:bg-gray-50 transition flex-shrink-0">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- L-Carnitine -->
+                <div class="flex flex-col md:flex-row items-center justify-between py-8 border-b border-gray-200 gap-4 md:gap-12">
+                    <h3 class="text-4xl font-medium tracking-tight w-full md:w-1/3">L-Carnitine</h3>
+                    <div class="flex-grow flex justify-between items-center w-full">
+                        <p class="text-gray-600 text-sm max-w-sm">Supports fat metabolism, endurance, and energy production for a lean, efficient body.</p>
+                        <button class="w-12 h-12 rounded-xl border border-gray-300 bg-transparent text-gray-800 flex items-center justify-center hover:bg-gray-50 transition flex-shrink-0">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Capsules -->
+                <div class="flex flex-col md:flex-row items-center justify-between py-8 border-b border-gray-200 gap-4 md:gap-12">
+                    <h3 class="text-4xl font-medium tracking-tight w-full md:w-1/3">Capsules</h3>
+                    <div class="flex-grow flex justify-between items-center w-full">
+                        <p class="text-gray-600 text-sm max-w-sm">Clean, precisely dosed formulas for daily support and consistent performance.</p>
+                        <button class="w-12 h-12 rounded-xl border border-gray-300 bg-transparent text-gray-800 flex items-center justify-center hover:bg-gray-50 transition flex-shrink-0">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bulk -->
+                <div class="flex flex-col md:flex-row items-center justify-between py-8 gap-4 md:gap-12">
+                    <h3 class="text-4xl font-medium tracking-tight w-full md:w-1/3">Bulk</h3>
+                    <div class="flex-grow flex justify-between items-center w-full">
+                        <p class="text-gray-600 text-sm max-w-sm">Large-format research-grade peptides with verified purity and uncompromising quality.</p>
+                        <button class="w-12 h-12 rounded-xl border border-gray-300 bg-transparent text-gray-800 flex items-center justify-center hover:bg-gray-50 transition flex-shrink-0">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Capsule Section -->
+        <section class="capsule-bg rounded-[2rem] relative overflow-hidden min-h-[500px] flex items-center px-8 md:px-16 text-white shadow-xl">
+            <div class="w-full md:w-1/2 z-10 space-y-6">
+                <h2 class="text-4xl md:text-5xl font-bold leading-tight tracking-tight">
+                    THE FUTURE OF PEPTIDES<br>IN CAPSULE FORM
+                </h2>
+                <p class="text-gray-300 text-base max-w-md font-light leading-relaxed">
+                    The same verified purity — redefined for daily precision. Your favourite peptides, now in a seamless capsule format.
+                </p>
+                <button class="btn-teal px-6 py-3 rounded-full font-medium flex items-center space-x-2 text-sm w-max">
+                    <span>Explore more</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+        </section>
+
+        <!-- Subscribe -->
+        <section class="px-4 md:px-8 py-8">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/4">
+                    <img src="Generated Image April 06, 2026 - 1_35PM.jpg" alt="Lab vials" class="rounded-2xl w-full h-32 object-cover shadow-sm">
+                </div>
+                <div class="w-full md:w-1/3">
+                    <h2 class="text-4xl md:text-5xl font-medium tracking-tight">Subscribe for 10%<br>discount</h2>
+                </div>
+                <div class="w-full md:w-5/12 flex flex-col space-y-4">
+                    <p class="text-gray-500 text-sm">Get weekly updates about our products on your email, no spam guaranteed our promise.</p>
+                    <div class="flex w-full bg-white rounded-xl overflow-hidden border border-gray-200 p-1 shadow-sm">
+                        <input type="email" placeholder="Your email" class="flex-grow px-4 py-2 outline-none text-gray-700 bg-transparent">
+                        <button class="bg-[#00E5C0] text-white w-10 h-10 rounded-lg flex items-center justify-center hover:bg-[#00cfae] transition flex-shrink-0">
+                            <i class="fas fa-paper-plane text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-white rounded-t-[3rem] px-8 py-16 shadow-[0_-10px_40px_rgba(0,0,0,0.02)]">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-2">
+                        <img src="peplogix_logo2.png" alt="peplogix" class="h-10">
+                    </div>
+                    <p class="text-gray-500 text-sm max-w-xs leading-relaxed">
+                        Unlock your body's potential with science-backed peptides — precision, performance, and vitality in every dose.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-6">Menu</h4>
+                    <ul class="space-y-4 text-gray-500 text-sm">
+                        <li><a href="#" class="hover:text-gray-900 transition">Home</a></li>
+                        <li><a href="#" class="hover:text-gray-900 transition">Shop</a></li>
+                        <li><a href="#" class="hover:text-gray-900 transition">Testing</a></li>
+                        <li><a href="#" class="hover:text-gray-900 transition">FAQ</a></li>
+                        <li><a href="#" class="hover:text-gray-900 transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-gray-500 text-sm">
+                        <li><a href="#" class="hover:text-gray-900 transition">Legal</a></li>
+                        <li><a href="#" class="hover:text-gray-900 transition">Register</a></li>
+                        <li><a href="#" class="hover:text-gray-900 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-gray-900 transition">Terms and Conditions</a></li>
+                        <li><a href="#" class="hover:text-gray-900 transition">Legal &amp; Compliance</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-6 text-right">Operational</h4>
+                    <ul class="space-y-4 text-gray-500 text-sm text-right">
+                        <li>Every day 9:00 – 22:00</li>
+                        <li>Sat – Sun 9:00 – 19:00</li>
+                        <li class="pt-2"><a href="#" class="text-gray-900 font-semibold hover:underline">You need a consult?</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-100 text-gray-400 text-sm">
+                <p>Copyright &copy; 2026</p>
+                <div class="flex items-center space-x-3 mt-4 md:mt-0">
+                    <i class="fab fa-cc-visa text-2xl text-[#1434CB]"></i>
+                    <i class="fab fa-cc-mastercard text-2xl text-[#EB001B]"></i>
+                </div>
+            </div>
+        </footer>
+
     </div>
-    <div class="footer__bottom">
-      <p>Copyright &copy; 2026</p>
-      <div class="footer__pay">
-        <svg viewBox="0 0 48 30"><rect width="48" height="30" rx="4" fill="#1a1f71"/><text x="8" y="21" fill="#fff" font-size="14" font-family="Arial" font-weight="bold" font-style="italic">VISA</text></svg>
-        <svg viewBox="0 0 48 30"><rect width="48" height="30" rx="4" fill="#252525"/><circle cx="18" cy="15" r="9" fill="#eb001b"/><circle cx="30" cy="15" r="9" fill="#f79e1b"/><path d="M24 8.2a9 9 0 010 13.6 9 9 0 010-13.6z" fill="#ff5f00"/></svg>
-      </div>
-    </div>
-  </footer>
 
 </body>
 </html>
