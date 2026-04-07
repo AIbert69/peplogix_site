@@ -1,0 +1,22 @@
+{
+  "name": "Peplogix — Precision Peptides",
+  "short_name": "Peplogix",
+  "description": "Precision peptides for powerful results",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0e151e",
+  "theme_color": "#0e151e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "peplogix_logo2.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "peplogix_logo2.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

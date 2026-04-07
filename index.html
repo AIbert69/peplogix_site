@@ -2,7 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0e151e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Peplogix">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">
     <title>peplogix — Precision Peptides</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -191,6 +197,120 @@
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #999; }
+
+        /* ===== MOBILE APP MODE ===== */
+        
+        /* Safe area padding for notched phones */
+        @supports (padding: env(safe-area-inset-bottom)) {
+            .bottom-nav { padding-bottom: env(safe-area-inset-bottom); }
+            body { padding-bottom: env(safe-area-inset-bottom); }
+        }
+
+        /* Bottom navigation - mobile only */
+        .bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 200;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding: 8px 0 8px;
+        }
+        .bottom-nav a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            font-size: 10px;
+            color: #9ca3af;
+            transition: color 0.2s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .bottom-nav a.active {
+            color: #00E5C0;
+        }
+        .bottom-nav a i {
+            font-size: 20px;
+        }
+
+        /* Mobile hamburger */
+        .mobile-menu-btn {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Mobile slide-out menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 300;
+        }
+        .mobile-menu.open {
+            display: flex;
+        }
+        .mobile-menu__overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+        }
+        .mobile-menu__panel {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 280px;
+            background: #0e151e;
+            padding: 24px;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .mobile-menu.open .mobile-menu__panel {
+            transform: translateX(0);
+        }
+        .mobile-menu__link {
+            display: block;
+            padding: 16px 0;
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            transition: color 0.2s, padding-left 0.2s;
+        }
+        .mobile-menu__link:hover, .mobile-menu__link.active {
+            color: #00E5C0;
+            padding-left: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: flex; }
+            .bottom-nav { display: flex; justify-content: space-around; }
+            body { padding-bottom: 72px; }
+            
+            /* Hide desktop nav links on mobile */
+            .desktop-nav { display: none !important; }
+            
+            /* App-like touch feel */
+            * { -webkit-tap-highlight-color: transparent; }
+            
+            /* Smoother scrolling */
+            html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+            
+            /* Cards go full-bleed on small screens */
+            .product-card { border-radius: 16px; }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -210,7 +330,7 @@
                 <div class="flex items-center space-x-2">
                     <img src="peplogix_logo2.png" alt="peplogix" class="h-8" />
                 </div>
-                <div class="hidden md:flex items-center space-x-8 text-sm text-gray-300">
+                <div class="hidden md:flex items-center space-x-8 text-sm text-gray-300 desktop-nav">
                     <a href="#" class="bg-white text-black px-4 py-1.5 rounded-full font-medium">Home</a>
                     <a href="#" class="hover:text-white flex items-center space-x-1">
                         <span>Shop</span>
@@ -226,6 +346,9 @@
                     </button>
                     <button class="w-10 h-10 rounded-lg glass-badge flex items-center justify-center hover:bg-white/20 transition text-white">
                         <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <button class="mobile-menu-btn glass-badge" onclick="document.getElementById('mobileMenu').classList.add('open')">
+                        <i class="fas fa-bars"></i>
                     </button>
                 </div>
             </nav>
@@ -520,6 +643,55 @@
 
     </div>
 
+    <!-- Mobile Slide-Out Menu -->
+    <div id="mobileMenu" class="mobile-menu">
+        <div class="mobile-menu__overlay" onclick="this.parentElement.classList.remove('open')"></div>
+        <div class="mobile-menu__panel">
+            <div class="flex justify-between items-center mb-8">
+                <img src="peplogix_logo2.png" alt="peplogix" class="h-7">
+                <button onclick="document.getElementById('mobileMenu').classList.remove('open')" class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav>
+                <a href="#" class="mobile-menu__link active">Home</a>
+                <a href="#" class="mobile-menu__link">Shop</a>
+                <a href="#" class="mobile-menu__link">Testing</a>
+                <a href="#" class="mobile-menu__link">FAQ</a>
+                <a href="#" class="mobile-menu__link">Contact</a>
+            </nav>
+            <div class="mt-8 pt-6 border-t border-white/10">
+                <button class="btn-teal w-full px-6 py-3 rounded-full font-medium text-sm">
+                    Open Store
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <div class="bottom-nav">
+        <a href="#" class="active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#">
+            <i class="fas fa-store"></i>
+            <span>Shop</span>
+        </a>
+        <a href="#">
+            <i class="fas fa-flask"></i>
+            <span>Testing</span>
+        </a>
+        <a href="#">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Cart</span>
+        </a>
+        <a href="#">
+            <i class="fas fa-user"></i>
+            <span>Account</span>
+        </a>
+    </div>
+
     <script>
     // Scroll Reveal
     const observer = new IntersectionObserver((entries) => {
@@ -545,15 +717,32 @@
 
     // Nav shrink on scroll
     const nav = document.querySelector('nav');
+    const bottomNav = document.querySelector('.bottom-nav');
+    let lastScroll = 0;
     if (nav) {
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
+            const currentScroll = window.scrollY;
+            
+            // Top nav shrink
+            if (currentScroll > 100) {
                 nav.style.paddingTop = '12px';
                 nav.style.paddingBottom = '12px';
             } else {
                 nav.style.paddingTop = '24px';
                 nav.style.paddingBottom = '24px';
             }
+            
+            // Bottom nav hide on scroll down, show on scroll up
+            if (bottomNav) {
+                if (currentScroll > lastScroll && currentScroll > 200) {
+                    bottomNav.style.transform = 'translateY(100%)';
+                    bottomNav.style.transition = 'transform 0.3s ease';
+                } else {
+                    bottomNav.style.transform = 'translateY(0)';
+                    bottomNav.style.transition = 'transform 0.3s ease';
+                }
+            }
+            lastScroll = currentScroll;
         }, { passive: true });
     }
     </script>
